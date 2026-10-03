@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>分块校验树核对结果</title>
+<style>
+body { font-family: system-ui, sans-serif; margin: 2em; color: #1e293b; }
+h1 { font-size: 1.3em; }
+#summary { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+#summary dt { font-weight: 600; }
+#summary dd { margin: 0; font-family: ui-monospace, monospace; }
+#tree { width: 100%; max-width: 960px; border: 1px solid #cbd5e1; background: #f8fafc; }
+#tree line { stroke: #94a3b8; stroke-width: 1.5; }
+.node circle { fill: #fff; stroke: #94a3b8; stroke-width: 1.5; }
+.node text { font-size: 11px; text-anchor: middle; dominant-baseline: central; fill: #334155; }
+.node .block-label { fill: #7f1d1d; font-weight: 600; }
+.node.changed circle { fill: #fbbf24; stroke: #b45309; }
+.node.changed-block circle { fill: #ef4444; stroke: #7f1d1d; }
+.node.changed-block text { fill: #fff; }
+#paths li { font-family: ui-monospace, monospace; }
+</style>
+</head>
+<body>
+  <h1>分块校验树核对结果</h1>
+  <dl id="summary">
+      <dt>块数</dt><dd>17</dd>
+      <dt>变化块</dt><dd>3 5 9 12</dd>
+      <dt>重算数</dt><dd>10</dd>
+      <dt>根</dt><dd>6d9fa393e5fe340ecf1173d71f35aea3854a07f32c988a09569461dfce121cb5</dd>
+  </dl>
+  <h2>重算路径</h2>
+  <svg id="tree" viewBox="0 0 960 388" role="img"
+       aria-label="变化路径高亮图">
+      <g class="edges"><line data-edge="1:0/0:3" x1="158.8" y1="232.0" x2="232.9" y2="328.0"/><line data-edge="1:1/0:5" x1="356.5" y1="232.0" x2="331.8" y2="328.0"/><line data-edge="1:2/0:9" x1="554.1" y1="232.0" x2="529.4" y2="328.0"/><line data-edge="1:3/0:12" x1="751.8" y1="232.0" x2="677.6" y2="328.0"/><line data-edge="2:0/1:0" x1="455.3" y1="136.0" x2="158.8" y2="232.0"/><line data-edge="2:0/1:1" x1="455.3" y1="136.0" x2="356.5" y2="232.0"/><line data-edge="2:0/1:2" x1="455.3" y1="136.0" x2="554.1" y2="232.0"/><line data-edge="2:0/1:3" x1="455.3" y1="136.0" x2="751.8" y2="232.0"/><line data-edge="3:0/2:0" x1="480.0" y1="40.0" x2="455.3" y2="136.0"/></g>
+      <g class="node changed-block" data-node="0:3" transform="translate(232.9,328.0)"><circle r="20"/><text>0:3</text><text class="block-label" y="34">块 3</text></g>
+      <g class="node changed-block" data-node="0:5" transform="translate(331.8,328.0)"><circle r="20"/><text>0:5</text><text class="block-label" y="34">块 5</text></g>
+      <g class="node changed-block" data-node="0:9" transform="translate(529.4,328.0)"><circle r="20"/><text>0:9</text><text class="block-label" y="34">块 9</text></g>
+      <g class="node changed-block" data-node="0:12" transform="translate(677.6,328.0)"><circle r="20"/><text>0:12</text><text class="block-label" y="34">块 12</text></g>
+      <g class="node changed" data-node="1:0" transform="translate(158.8,232.0)"><circle r="20"/><text>1:0</text></g>
+      <g class="node changed" data-node="1:1" transform="translate(356.5,232.0)"><circle r="20"/><text>1:1</text></g>
+      <g class="node changed" data-node="1:2" transform="translate(554.1,232.0)"><circle r="20"/><text>1:2</text></g>
+      <g class="node changed" data-node="1:3" transform="translate(751.8,232.0)"><circle r="20"/><text>1:3</text></g>
+      <g class="node changed" data-node="2:0" transform="translate(455.3,136.0)"><circle r="20"/><text>2:0</text></g>
+      <g class="node changed" data-node="3:0" transform="translate(480.0,40.0)"><circle r="20"/><text>3:0</text></g>
+  </svg>
+  <h2>变化块路径</h2>
+  <ul id="paths">
+      <li>路径 3 0/0/3</li>
+      <li>路径 5 0/1/1</li>
+      <li>路径 9 0/2/1</li>
+      <li>路径 12 0/3/0</li>
+  </ul>
+</body>
+</html>
